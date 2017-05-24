@@ -4376,26 +4376,25 @@ jQuery(document).ready(function($) {
         .then((response) => {
             let items = response.items;
 
-            if( items.length > 0 ){  // -- has items
-
+            if( items.length > 0 ){  // - has items
                 $('.golf-carts-unavailable').hide();
 
-                $.each(items,function(i) {
+                $.each(items,function(i) {  // -- for each item
                     const fields = this.fields;
                     let $cart = $('<div class="cart"></div>');
-
                     let $title = $('<h4></h4>').text(fields.title);
                     let $description = $('<div class="description"></div>').html( marked(fields.description) );
+
                     $cart.append($title);
                     $cart.append($description);
 
-                    if( fields.photos.length > 0 ){
+                    if( fields.photos.length > 0 ){ // --- has photos
                         let $photos = $('<div class="photos"></div>');
 
-                        $.each(fields.photos,function () {
+                        $.each(fields.photos,function () { // ---- each photo
                             const url = this.fields.file.url;
-                            //const fields = this.fields;
                             let $wrapper = $('<a></a>');
+
                             $wrapper
                                 .attr({
                                     "href": url,
@@ -4409,14 +4408,13 @@ jQuery(document).ready(function($) {
                                 );
 
                             $photos.append($wrapper);
+                        }); // ---- end each photo
 
-                        });
                         $cart.append($photos);
-                    }
+                    } // --- end has photos
 
                     $availableCarts.append($cart);
-
-                });
+                }); // -- end each item
 
                 $('.golf-carts-page').append($availableCarts);
 
@@ -4425,9 +4423,7 @@ jQuery(document).ready(function($) {
                 );
 
                 $availableCarts.prepend($info);
-
                 fancyboxInit();
-
             } // -- has items
 
         })
