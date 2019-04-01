@@ -1,4 +1,7 @@
-var menuToggleInit = function(){
+(function () {
+'use strict';
+
+function menuToggleInit(){
     $('#menu-toggle').click(function(){
         $(this).toggleClass('is-active');
         if( $(this).hasClass('is-active') ){
@@ -7,10 +10,12 @@ var menuToggleInit = function(){
             $('.mobile-menu-items').removeClass('show');
         }
     });
-};
+}
 
 jQuery(document).ready(function($) {
     menuToggleInit();
 });
+
+}());
 
 //# sourceMappingURL=marine-page.js.map

@@ -1,4 +1,7 @@
-var menuToggleInit = function(){
+(function () {
+'use strict';
+
+function menuToggleInit(){
     $('#menu-toggle').click(function(){
         $(this).toggleClass('is-active');
         if( $(this).hasClass('is-active') ){
@@ -7,7 +10,7 @@ var menuToggleInit = function(){
             $('.mobile-menu-items').removeClass('show');
         }
     });
-};
+}
 
 jQuery(document).ready(function($) {
     menuToggleInit();
@@ -63,5 +66,7 @@ jQuery(document).ready(function($) {
     }, 3500);
 
 });
+
+}());
 
 //# sourceMappingURL=home-page.js.map

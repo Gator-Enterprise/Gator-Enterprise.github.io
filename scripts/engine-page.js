@@ -1,4 +1,7 @@
-var menuToggleInit = function(){
+(function () {
+'use strict';
+
+function menuToggleInit(){
     $('#menu-toggle').click(function(){
         $(this).toggleClass('is-active');
         if( $(this).hasClass('is-active') ){
@@ -7,7 +10,7 @@ var menuToggleInit = function(){
             $('.mobile-menu-items').removeClass('show');
         }
     });
-};
+}
 
 // ==================================================
 // fancyBox v3.0.47
@@ -19,7 +22,7 @@ var menuToggleInit = function(){
 // Copyright 2017 fancyApps
 //
 // ==================================================
-var fancyboxInit = function(){
+function fancyboxInit(){
     (function (window, document, $, undefined) {
         //'use strict';
 
@@ -4357,7 +4360,7 @@ var fancyboxInit = function(){
 
     }(document, window, window.jQuery));
 
-};
+}
 
 jQuery(document).ready(function($) {
     menuToggleInit();
@@ -4434,5 +4437,7 @@ jQuery(document).ready(function($) {
 
 
 });
+
+}());
 
 //# sourceMappingURL=engine-page.js.map
