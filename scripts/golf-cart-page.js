@@ -26,6 +26,10 @@ function menuToggleInit(){
 jQuery(document).ready(function($) {
     menuToggleInit();
     var $activeImage = $('.golf-carts-photos .active');
+    cycleImage();
+    setInterval(function(){
+        cycleImage();
+    }, 3500);
 
     function cycleImage() {
         $('.golf-carts-photos img').removeClass('active');
@@ -41,9 +45,7 @@ jQuery(document).ready(function($) {
     }
 
 
-        setInterval(function(){
-            cycleImage();
-        }, 3000);
+
 
 });
 
