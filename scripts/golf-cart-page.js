@@ -34,7 +34,7 @@ jQuery(document).ready(function($) {
         accessToken: ACCESS_TOKEN
     });
 
-    const $activeImage = $('.golf-carts-photos .active');
+    let $activeImage = $('.golf-carts-photos .active');
 
     const $availableCarts = $('<div>');
     
