@@ -1,0 +1,251 @@
+@import "variables";
+
+@mixin text-shadow() {
+    text-shadow: 1px 1px #333;
+}
+
+@import "reset";
+
+html {min-width: 270px;}
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+
+    background-image: url('/images/diamond-plate-background-black.jpg');
+
+    //background-size: cover;
+    //background-position: bottom;
+    background-size: 100% auto;
+    //background-position: bottom;
+    background-position: top;
+    background-repeat: repeat no-repeat;
+    background-color: #000;
+    //min-height:100vh;
+
+    nav,
+    & > section {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 1280px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    & > section {
+        position: relative;
+        z-index: 1;
+        & > a > div,
+        & > div {
+            background-color: #fff;
+            margin-top: $block-spacing;
+            margin-bottom: $block-spacing;
+            padding:1rem;
+        }
+    }
+
+}
+
+
+header {
+    @mixin item-state($active:'true'){
+        @if $active == 'true' {
+            a { color: $purple; }
+            border-bottom-width: 5px;
+        } @else {
+            a { color: #fff; }
+            border-bottom-width: 0px;
+        }
+    }
+
+    padding-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    nav > ul {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+    }
+
+    a {
+        @include text-shadow();
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        color: #fff;
+    }
+
+    .menu-item {
+        display: flex;
+        //align-items: flex-end;
+        align-items: center;
+        border-bottom-width: 0px;
+        border-bottom-style: solid;
+        border-bottom-color: $purple;
+        text-align: center;
+        transition: all 200ms;
+
+        &:hover {
+            @include item-state;
+        }
+    }
+    .menu-item.active {
+        @include item-state;
+    }
+    .logo {
+        max-height: calc(140px - 1rem);
+        padding-bottom:1rem;
+    }
+
+    &:hover {
+        .menu-item.active {
+            @include item-state($active:'false');
+            &:hover { @include item-state; }
+        }
+    }
+
+    .mobile-nav {display:none;}
+}
+
+@import "mobile-nav";
+a {
+    &:active,
+    &:visited,
+    &:focus {
+        outline-width: 0;
+        outline-style: hidden;
+    }
+}
+h1,h2,h3,h4{
+    -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+h4 { font-weight: 700;}
+
+p {
+    line-height: 1.25;
+}
+
+strong { font-weight: 700; }
+.dark {
+    background-color: $dark;
+    color: #fff;
+}
+%info-block {
+    h4 { font-weight: 700;}
+
+    ul,
+    p {padding-bottom: 1rem;}
+
+    li {
+        padding-left:1em;
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
+    }
+
+    & > *:last-child {
+        padding-bottom:0;
+    }
+}
+
+.shadow {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    width: 100%;
+    height: 400px;
+    left: 0;
+    top: 160px;
+    background: url(/images/header_shadow.png) repeat-x 0 0;
+    z-index: 0;
+}
+
+.overlay {
+    @include text-shadow;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba($dark, 0.75);
+    width: 100%;
+    text-align: center;
+}
+
+/*
+#intro {
+    width: 60%;
+    margin-top: $block-spacing * 1.5;
+    padding: 0;
+    position: relative;
+    display: block;
+
+    img {width:100%;}
+    img {display:block}
+    div {
+        @extend .dark;
+
+
+    }
+    .overlay {
+        @include text-shadow;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(#2c2c2c, 0.75);
+        padding: 1rem;
+        box-sizing: border-box;
+        width: 100%;
+    }
+}
+*/
+.map {
+    padding:0;
+    iframe {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@import "home-page";
+@import "marine-page";
+@import "contact-page";
+@import "shared-item-styles";
+@import "engines-page";
+@import "golf-cart-page";
+@import "baitshop-page";
+@import "mobile-nav";
+
+
+//--fancybox fix
+.fancybox-slide {
+    .fancybox-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & > * {
+            position: relative;
+            max-width: 80%;
+            max-height: 80%;
+        }
+    }
+
+    //margin-left:auto;
+    //margin-right: auto;
+
+}
+
+
+
+
+@import "services-pages";
+
+@import "jquery.fancybox.css.scss";
+

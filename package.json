@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "gulp",
+    "serve": "gulp serve",
+    "serve:dist": "gulp serve:dist"
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "browser-sync": "^3.0.3",
+    "cssnano": "^7.0.6",
+    "esbuild": "^0.24.2",
+    "gulp": "^5.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "jquery": "^3.7.1",
+    "postcss": "^8.4.49",
+    "sass": "^1.83.0",
+    "sw-precache": "^5.2.1",
+    "sw-toolbox": "^3.6.0"
+  }
+}
